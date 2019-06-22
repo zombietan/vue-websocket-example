@@ -54,10 +54,10 @@
                 </thead>
                 <tbody is="transition-group" id="left">
                   <!-- 1 to 25 -->
-                  <tr v-for="trand in upTo25" :key="trand.name" v-cloak>
-                    <th><% trand.rank %></th>
-                    <td><a :href="trand.url" class="has-text-grey-darker"><% trand.name %></a></td>
-                    <td><% trand.volume %></td>
+                  <tr v-for="trend in upTo25" :key="trend.name" v-cloak>
+                    <th><% trend.rank %></th>
+                    <td><a :href="trend.url" class="has-text-grey-darker"><% trend.name %></a></td>
+                    <td><% trend.volume %></td>
                   </tr>
                 </tbody>
               </table>
@@ -74,10 +74,10 @@
                 </thead>
                 <tbody is="transition-group" id="right">
                   <!-- 26 to 50 -->
-                  <tr v-for="trand in upTo50" :key="trand.name" v-cloak>
-                    <th><% trand.rank %></th>
-                    <td><a :href="trand.url" class="has-text-grey-darker"><% trand.name %></a></td>
-                    <td><% trand.volume %></td>
+                  <tr v-for="trend in upTo50" :key="trend.name" v-cloak>
+                    <th><% trend.rank %></th>
+                    <td><a :href="trend.url" class="has-text-grey-darker"><% trend.name %></a></td>
+                    <td><% trend.volume %></td>
                   </tr>
                 </tbody>
               </table>

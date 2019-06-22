@@ -63,10 +63,10 @@ class TwitterTrendWebSocketHandler(tornado.websocket.WebSocketHandler):
 
     def open(self):
         TwitterTrendWebSocketHandler.waiters.add(self)
-        trands = json.dumps(
+        trends = json.dumps(
             TwitterTrendWebSocketHandler.trends_cache
         )
-        self.write_message(trands)
+        self.write_message(trends)
 
     def on_close(self):
         TwitterTrendWebSocketHandler.waiters.remove(self)

@@ -35,10 +35,10 @@
             </thead>
             <tbody is="transition-group" id="left">
               <!-- 1 to 25 -->
-              <tr v-for="trand in upTo25" :key="trand.name">
-                <th><% trand.rank %></th>
-                <td><a :href="trand.url"><% trand.name %></a></td>
-                <td><% trand.volume %></td>
+              <tr v-for="trend in upTo25" :key="trend.name">
+                <th><% trend.rank %></th>
+                <td><a :href="trend.url"><% trend.name %></a></td>
+                <td><% trend.volume %></td>
               </tr>
             </tbody>
           </table>
@@ -55,10 +55,10 @@
             </thead>
             <tbody is="transition-group" id="right">
               <!-- 26 to 50 -->
-              <tr v-for="trand in upTo50" :key="trand.name">
-                <th><% trand.rank %></th>
-                <td><a :href="trand.url"><% trand.name %></a></td>
-                <td><% trand.volume %></td>
+              <tr v-for="trend in upTo50" :key="trend.name">
+                <th><% trend.rank %></th>
+                <td><a :href="trend.url"><% trend.name %></a></td>
+                <td><% trend.volume %></td>
               </tr> 
             </tbody>
           </table>
