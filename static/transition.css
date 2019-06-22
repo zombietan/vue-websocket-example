@@ -1,0 +1,43 @@
+/* .v-leave-active, */
+.v-enter-active {
+    transition: opacity .5s, transform .5s ease;
+}
+/* .v-leave-to, */
+.v-enter {
+    opacity: 0;
+    transform: translateX(50px);
+}
+/* .v-leave, */
+.v-enter-to {
+    opacity: 1;
+}
+.v-move {
+    transition: transform .5s;
+}
+[v-cloak] {
+    display: none;
+}
+
+.magictime {
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+}
+
+.vanishIn {
+  animation-name: vanishIn;
+}
+@keyframes vanishIn {
+  0% {
+    opacity: 0;
+    transform-origin: 50% 50%;
+    transform: scale(2, 2);
+    filter: blur(90px);
+  }
+
+  100% {
+    opacity: 1;
+    transform-origin: 50% 50%;
+    transform: scale(1, 1);
+    filter: blur(0px);
+  }
+}

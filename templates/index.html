@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="apple-touch-icon" sizes="152x152" href="{{ static_url('apple-touch-icon.png') }}">
+  <title>トレンド</title>
+  <link rel="stylesheet" href="{{ static_url('transition.css') }}" type="text/css">
+  <link rel="stylesheet" href="https://unpkg.com/buefy/dist/buefy.min.css">
+  <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+
+  <style type="text/css">
+    header {
+      padding-top: 0.5em;
+      padding-bottom: 0.5em;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+  <header>
+    <div class="container is-fluid">
+      <nav class="level">
+        <div class="level-left">
+          <div class="level-item">
+            <p class="subtitle">
+              <i :class="{ vanishIn: isActive, magictime: isActive }" class="fa fa-twitter has-text-info" aria-hidden="true"></i>
+              トレンド
+            </p>
+          </div>
+        </div>
+        <div class="level-right">
+          <div class="level-item">
+              <span class="is-size-7" id="timestamp">30秒間隔で更新</span>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+    <main>
+      <section class="section is-paddingless">
+        <div class="container is-fluid">
+          <div class="columns">
+            <div class="column is-6">
+              <table class="table is-narrow is-fullwidth">
+                <thead>
+                  <tr>
+                    <th class="has-text-info">No.</th>
+                    <th class="has-text-info">word</th>
+                    <th class="has-text-info">volume</th>
+                  </tr>
+                </thead>
+                <tbody is="transition-group" id="left">
+                  <!-- 1 to 25 -->
+                  <tr v-for="trand in upTo25" :key="trand.name" v-cloak>
+                    <th><% trand.rank %></th>
+                    <td><a :href="trand.url" class="has-text-grey-darker"><% trand.name %></a></td>
+                    <td><% trand.volume %></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="column is-6">
+              <table class="table is-narrow is-fullwidth">
+                <thead>
+                  <tr>
+                    <th class="has-text-info">No.</th>
+                    <th class="has-text-info">word</th>
+                    <th class="has-text-info">volume</th>
+                  </tr>
+                </thead>
+                <tbody is="transition-group" id="right">
+                  <!-- 26 to 50 -->
+                  <tr v-for="trand in upTo50" :key="trand.name" v-cloak>
+                    <th><% trand.rank %></th>
+                    <td><a :href="trand.url" class="has-text-grey-darker"><% trand.name %></a></td>
+                    <td><% trand.volume %></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/reconnecting-websocket/1.0.0/reconnecting-websocket.min.js"></script>
+  <script src="https://unpkg.com/vue"></script>
+  <!-- Full bundle -->
+  <script src="https://unpkg.com/buefy/dist/buefy.min.js"></script>
+  <script src="{{ static_url('app.js') }}"></script>
+</body>
+
+</html>
