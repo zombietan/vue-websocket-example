@@ -2,6 +2,7 @@ const vm = new Vue({
   el: '#app',
   data: {
     trends: [],
+    trendsNameArray: [],
     ws: new ReconnectingWebSocket(location.protocol.replace("http", "ws") + "//" + location.host + "/ws"),
     isActive: false
   },
@@ -13,6 +14,7 @@ const vm = new Vue({
 
     this.ws.onmessage = (evt) => {
       this.flashTwitterLogo()
+      this.trendsNameArray = this.trends.map(value => value.name)
       this.trends.splice(0, this.trends.length)
       this.trends = this.trends.concat(JSON.parse(evt.data))
     }
@@ -36,6 +38,13 @@ const vm = new Vue({
         this.isActive = false
       }
       asyncfunc()
+    },
+
+    isNew: function (name) {
+      if (this.trendsNameArray.length === 0) {
+        return null
+      }
+      return this.trendsNameArray.some(v => v === name) ? null : "new" 
     }
   }
 

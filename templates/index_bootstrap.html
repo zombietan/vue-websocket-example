@@ -31,6 +31,7 @@
                 <th>No.</th>
                 <th>word</th>
                 <th>volume</th>
+                <th>isNew</th>
               </tr>
             </thead>
             <tbody is="transition-group" id="left">
@@ -39,6 +40,7 @@
                 <th><% trend.rank %></th>
                 <td><a :href="trend.url"><% trend.name %></a></td>
                 <td><% trend.volume %></td>
+                <td class="text-info"><% isNew(trend.name) %></td>
               </tr>
             </tbody>
           </table>
@@ -51,6 +53,7 @@
                 <th>No.</th>
                 <th>word</th>
                 <th>volume</th>
+                <th>isNew</th>
               </tr>
             </thead>
             <tbody is="transition-group" id="right">
@@ -59,6 +62,7 @@
                 <th><% trend.rank %></th>
                 <td><a :href="trend.url"><% trend.name %></a></td>
                 <td><% trend.volume %></td>
+                <td class="text-info"><% isNew(trend.name) %></td>
               </tr> 
             </tbody>
           </table>
