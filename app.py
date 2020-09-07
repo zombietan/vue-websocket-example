@@ -78,7 +78,7 @@ class TwitterTrendWebSocketHandler(tornado.websocket.WebSocketHandler):
         for waiter in cls.waiters:
             try:
                 waiter.write_message(trends)
-            except:
+            except Exception:
                 logger.error("Error sending message", exc_info=True)
 
 
@@ -98,10 +98,10 @@ for place in api.trends_available():
 JP = regional_id['Japan']
 
 
-def loop_in_period_interval():
+def fech_trends_loop():
     PERIOD = 30
     ioloop = tornado.ioloop.IOLoop.current()
-    ioloop.add_timeout(time.time() + PERIOD, loop_in_period_interval)
+    ioloop.add_timeout(time.time() + PERIOD, fech_trends_loop)
     trends = []
     for idx, trend in enumerate(api.trends_place(JP)[0]['trends'], 1):
         value = {
@@ -117,7 +117,7 @@ def loop_in_period_interval():
 
 
 def main():
-    loop_in_period_interval()
+    fech_trends_loop()
     tornado.options.parse_command_line()
     app = Application()
     app.listen(options.port)
